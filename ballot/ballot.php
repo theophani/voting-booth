@@ -1,5 +1,10 @@
+<?php
+  $projects = array(1, 2, 3, 4, 5); // fetch votes
+?>
+<!doctype html>
 <html>
 <title>BG Hackathon Voting Ballot</title>
+<meta charset="utf-8">
 <body>
   <form method="post" action="./">
     <input type="hidden" name="voter" value="<?php echo $voter; ?>">

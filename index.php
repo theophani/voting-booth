@@ -1,5 +1,7 @@
+<!doctype html>
 <html>
 <title>BG Hackathon Voting Booth</title>
+<meta charset="utf-8">
 <body>
   <form method="get" action="ballot/">
     <label for="voter">Enter your voter code</label>
