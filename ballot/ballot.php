@@ -1,46 +1,31 @@
 <?php
-  $projects = array(1, 2, 3, 4, 5); // fetch votes
+  mysql_select_db($database_egatetif, $egatetif);
+  $query = "SELECT * FROM hackathon_projects ORDER BY run_order";
+  $projects = mysql_query($query, $egatetif) or die(mysql_error());
 ?>
 <!doctype html>
 <html>
 <title>BG Hackathon Voting Ballot</title>
 <meta charset="utf-8">
+<meta name="viewport" content="width=450; initial-scale=0.6;">
+<link rel="stylesheet" href="../style.css">
 <body>
-  <form method="post" action="./">
+  <h1>Pick your 3 favorites!</h1>
+  <h2>Projects with the most votes win :)</h2>
+    <form method="post" action="./">
     <input type="hidden" name="voter" value="<?php echo $voter; ?>">
     <ul>
-      <li>
-        <label>
-          <input type="checkbox" name="projects" value="1">
-          Project 1
+      <?php while ($project = mysql_fetch_assoc($projects)) { ?>
+      <li class="checkbox">
+        <input type="checkbox" name="projects[]" value="<?php echo $project['id']; ?>" id="project_<?php echo $project['id']; ?>">
+        <label for="project_<?php echo $project['id']; ?>">
+          <span class="run_order"><?php echo $project['run_order']; ?></span>
+          <span class="desc"><?php echo $project['desc']; ?></span>
         </label>
       </li>
-      <li>
-        <label>
-          <input type="checkbox" name="projects" value="2">
-          Project 2
-        </label>
-      </li>
-      <li>
-        <label>
-          <input type="checkbox" name="projects" value="3">
-          Project 3
-        </label>
-      </li>
-      <li>
-        <label>
-          <input type="checkbox" name="projects" value="4">
-          Project 4
-        </label>
-      </li>
-      <li>
-        <label>
-          <input type="checkbox" name="projects" value="5">
-          Project 5
-        </label>
-      </li>
+      <?php } ?>
     </ul>
-    <input type="submit" value="Vote!">
+    <button type="submit">Vote!</button>
   </form>
 </body>
 </html>

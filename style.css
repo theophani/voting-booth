@@ -1,0 +1,67 @@
+body {
+  font-family: Helvetica, sans-serif;
+  font-size: 20px;
+  color: #333;
+  width: 80%;
+  margin: 30px auto;
+}
+
+@media all (min-width: 500px) {
+  body {
+    font-size: 18px;
+    width: 50%;
+  }
+}
+
+* {
+  font-size: 100%;
+  line-height: 1.5;
+}
+
+h1, h2 {
+  margin: 0;
+}
+
+h1 {
+  font-size: 1.5em;
+}
+
+h2 {
+  font-size: 1.2em;
+}
+
+input[type=text] {
+  width: 100%;
+  margin: 18px 0;
+  padding: 0.25em;
+}
+button:focus, button:hover {
+  color: #000;
+  cursor: pointer;
+}
+
+ul {
+  margin: 18px 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+  line-height: 1.2;
+  margin: 0;
+  margin-bottom: 0.75em;
+  padding: 0;
+}
+
+li:before {
+  content: "→";
+}
+
+li.checkbox:hover label {
+  background-color: lightyellow;
+  cursor: pointer;
+}
+
+li.checkbox input:checked + label {
+  background-color: yellow;
+}
